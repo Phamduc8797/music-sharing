@@ -1,0 +1,10 @@
+<div class="edit-comment-fm">
+  <h4>Edit comment:</h4>
+  <%= form_for [@song, @comment], role: "form" do |f| %>
+    <%= image_tag "user8", class:"img-responsive img-circle img-sm" %>
+    <div class="img-push input-edit">
+      <%= f.text_field :content, class: "form-control input-sm",
+      placeholder: "Press enter to edit song comment", required: true %>
+    </div>
+  <% end %>
+</div>

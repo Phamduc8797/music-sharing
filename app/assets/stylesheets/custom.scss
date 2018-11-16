@@ -91,3 +91,89 @@ input[type=text] {
 .icon {font-size:23px; color: $list-song-icon;}
 .icon_edit {font-size:16px; color: $list-song-icon-edit;}
 .icon_delete {font-size:16px; color: $list-song-icon-delete;}
+
+/*list my albums*/
+
+hr {border: 1px solid $list-album-hr;}
+.team {
+  .name-album-index {font-size: 22px; height: auto;}
+  h2 {font-size: 16px; font-weight: lighter; margin-top: 5px;}
+  .img-box { opacity: 1; display: block; position: relative;
+    ul {
+      position: absolute;
+      z-index: 2;
+      bottom: 50px;
+      text-align: center;
+      width: 100%;
+      padding-left: 0px;
+      height: 0px;
+      margin: 0px;
+      opacity: 0;
+      i {font-size: 20px; letter-spacing: 10px;}
+      li {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border: 1px solid $btn-upload;
+        margin: 2px;
+        padding: 5px;
+        display: inline-block;
+      }
+      a {
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        -moz-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+      }
+    }
+    a {color: $img-boxs-a;}
+  }
+  .img-box:after {
+    content: "";
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+.team .img-box:after, .img-box ul, .img-box ul li {
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  -moz-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+.img-box:hover:after {opacity: 0.5;}
+.img-box:hover ul {opacity: 1;}
+.img-box a:hover li {
+  border-color: $bg-img-boxs-a-hover-li;
+  color: $img-boxs-a-hover-li;
+}
+.newalbum {float: right;}
+
+/*comments*/
+
+.action-comment {display: none;}
+.action-comment2:hover {
+  .action-comment {display: block;}
+  .action-comment3 {background-color: #D8D8D8;}
+}
+.add-comment {background-color: #D8D8D8; height: 70px; border-radius: 10px;}
+.new_comment {margin-top: 5px;}
+.box-widget hr {border: 0.3px solid #858585}
+.input-add {height: 40px; font-size: 18px;}
+.img-add {width: 40px !important; height: 40px !important;}
+.img-push input[type=text] {width: 99%;}
+.img-sm + .img-push {margin-left: 55px;}
+.bg-color {background-color: gray}
+.input-edit input[type=text] {
+  border: 1px solid #FACC2E;
+  height: 40px;
+  font-size: 14px;
+}
+.edit-comment-fm img {
+  width: 40px !important;
+    height: 40px !important;
+    margin-left: 10px;
+}
+.trun-comment p {width: 90%; height: auto !important; padding: 0; margin: 0;}

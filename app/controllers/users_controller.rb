@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: %i(new create)
-  before_action :find_user, except: %i(new create my_song)
+  before_action :find_user, except: %i(new create my_song my_album)
 
   def new
     @user = User.new
@@ -9,7 +9,13 @@ class UsersController < ApplicationController
 
   def my_song
     @user = current_user
-    @songs = Song.all
+    @songs = Song.page(params[:page]).per Settings.page.my_song
+  end
+
+  def my_album
+    @user = current_user
+    @albums = Album.oder_name.all
+    @album = Album.new
   end
 
   def show; end
@@ -36,7 +42,6 @@ class UsersController < ApplicationController
       flash[:danger] = t "users.edit.not_update"
       render :edit
     end
-
   end
 
   private

@@ -1,5 +1,5 @@
 <% @songs.each do |song| %>
-  <% if song.user == current_user %>
+  <% if check_current_obj_user? song %>
     <div class="panel panel-primary">
       <div class="row padall">
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">

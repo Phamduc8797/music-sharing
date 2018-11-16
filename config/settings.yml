@@ -14,3 +14,8 @@ expired_time: 2
 get_song:
   limit: 10
 show: 5
+page:
+  my_album: 10
+  my_song: 10
+truncate:
+  name_album: 12
