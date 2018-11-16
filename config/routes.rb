@@ -22,5 +22,6 @@ Rails.application.routes.draw do
     get "/", to: "dashboards#index"
     resources :categories
     resources :lyrics
+    resources :reports
   end
 end

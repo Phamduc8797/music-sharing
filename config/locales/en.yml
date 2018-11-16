@@ -84,6 +84,21 @@ en:
       destroy:
         delete_successfully: "Delete successfully"
         delete_failed: "Delete failed"
+    reports:
+      index:
+        title: "Check reports"
+        reason: "Reason"
+        sender: "Sender"
+        song: "Song"
+        created: "created_at"
+        action: "Action"
+      reports:
+        show: "See Details"
+        delete: "Delete"
+        sure: "You definitely want to delete this lyric!!"
+      destroy:
+        delete_successfully: "Delete successfully!!"
+        delete_failed: "Delete failed"
   lyric: "Lyric:"
   shared:
     header:
