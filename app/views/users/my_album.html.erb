@@ -1,0 +1,51 @@
+<% provide :title, t(".title_my_album") %>
+<div class="container">
+  <div class="col-md-3">
+    <%= render "users/user_board"%>
+  </div>
+  <div class="col-md-9">
+    <div class="row">
+      <h2><i class="fa fa-list"></i> <%= t ".header_my_album" %>
+        <%= link_to "#", class: "newalbum",
+          data: {toggle: "modal", target: "#new_album"} do %>
+          <i class="fa fa-plus-square"></i> <%= t ".add_album" %>
+        <% end %>
+      </h2>
+      <hr />
+      <div class="row pt-md">
+        <% if current_user.albums.blank? %>
+          <div class="notice-mysong notice-mysong-warning">
+            <strong><%= t(".notice") %></strong> <%= t(".notice_content") %>
+          </div>
+        <% else %>
+          <%= render "list_my_album" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="modal fade" id="new_album" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+            <h4 class="modal-title"><i class="fa fa-plus-square"></i>
+              <%= t ".add_album" %>
+            </h4>
+          </div>
+          <div class="modal-body">
+            <%= form_for @album do |f| %>
+              <i class="fa fa-user"></i> <%= t ".name_album" %>
+              <%= f.text_field :name, class: "form-control",
+                placeholder: t(".placeholder_name_album"), required: true %>
+          </div>
+          <div class="modal-footer">
+            <%= f.submit t(".add"), class: "btn btn-info" %>
+          </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>

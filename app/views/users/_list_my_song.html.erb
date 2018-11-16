@@ -1,16 +1,18 @@
 <% @songs.each do |song| %>
-  <% if song.user == current_user %>
-    <div class="panel panel-primary">
+  <% if check_current_obj_user? song %>
+    <div class="panel panel-primary space-botton">
       <div class="row padall">
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-          <img class="img_my_song" src="/assets/img_lights.jpg" />
+          <%= image_tag "/assets/img_lights.jpg", class: "img_my_song" %>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
           <div class="clearfix">
             <div class="pull-left">
               <br>
               <%= link_to "#" do %>
-                <span class="fa fa-music icon"> <%= song.name %></span>
+                <span class="fa fa-music icon">
+                  <%= link_to song.name, song_path(song), class: "link-to-song" %>
+                </span>
               <% end %>
             </div>
             <div class="pull-right">
@@ -35,7 +37,6 @@
           </div>
         </div>
       </div>
-      <%= audio_tag song.song_url.url, controls: true %>
     </div>
   <% end %>
 <% end %>

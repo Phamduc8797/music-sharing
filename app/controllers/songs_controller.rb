@@ -8,7 +8,12 @@ class SongsController < ApplicationController
     render json:@songs
   end
 
-  def show; end
+  def show
+    @lyric =  @song.lyrics.build
+    @report = @song.reports.build
+    @lyrics = @song.lyrics.accepted.page(params[:page]).per 1
+    @comments = @song.comments.includes(:song).order_time.page(params[:page]).per 10
+  end
 
   def new
     @song = Song.new
@@ -23,7 +28,7 @@ class SongsController < ApplicationController
     @song.user = current_user
     if @song.save
       flash[:success] = t ".add_song_successfully"
-      redirect_to users_my_song_url
+      redirect_to my_songs_url
     else
       flash[:danger] = t ".add_song_fail"
       render :new
@@ -33,9 +38,9 @@ class SongsController < ApplicationController
   def edit; end
 
   def update
-    if @song.update_attributes song_params
+    if @song.update song_params
       flash[:success] = t ".song_updated"
-      redirect_to users_my_song_url
+      redirect_to my_songs_url
     else
       flash[:danger] = t ".song_update_failed"
       render :edit
@@ -43,12 +48,16 @@ class SongsController < ApplicationController
   end
 
   def destroy
-    if @song.destroy
-      flash[:success] = t ".delete_successfully"
+    if check_current_obj_user? @song
+      if @song.destroy
+        flash[:success] = t ".delete_successfully"
+      else
+        flash[:danger] = t ".delete_fail"
+      end
     else
-      flash[:danger] = t ".delete_fail"
+      flash[:danger] = t ".must_current_user"
     end
-    redirect_to users_my_song_url
+    redirect_to my_songs_url
   end
 
   private

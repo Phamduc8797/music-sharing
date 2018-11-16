@@ -11,50 +11,102 @@
             <% end %>
           </h4>
           <canvas class="body body-<%= @song.id%> mb-1"></canvas>
-          <%= audio_tag @song.song_url.url, controls: true %>
           <p><strong><%= t ".lyric" %></strong>
-            <%= simple_format t(".format") %>
+            <%= render "lyrics/lyrics" %>
           </p>
           <button type="button" class="btn btn-default btn-xs">
-            <i class="fa fa-thumbs-o-down"></i> <%= t ".dislike" %>
+            <i class="fa fa-thumbs-o-down"></i> <%= t ".dislike"%>
           </button>
           <button type="button" class="btn btn-default btn-xs">
-            <i class="fa fa-thumbs-o-up"></i> <%= t ".like" %>
+            <i class="fa fa-thumbs-o-up"></i> <%= t ".like"%>
           </button>
-          <button type="button" class="btn btn-default btn-xs">
-            <i class="fa fa-flag"></i> <%= t ".report" %>
+          <button type="button" data-toggle="modal" data-target="#sent_report"
+            class="btn btn-default btn-xs">
+            <i class="fa fa-flag"></i> <%= t ".report"%>
           </button>
-          <span class="pull-right text-muted">
-            <%= t ".likes" %> - <%= t ".comments" %>
-          </span>
-        </div>
-        <div class="box-footer box-comments">
-          <div class="box-comment">
-            <%= image_tag  "user8", class: "img-circle img-sm" %>
-            <div class="comment-text">
-              <span class="username">
-                Maria Gonzales
-                <span class="text-muted pull-right"><%= Time.zone.now %></span>
-              </span>
-              It is a long established fact that a reader will be distracted
-              by the readable content of a page when looking at its layout.
+          <button type="button" data-toggle="modal" data-target="#add_lyrics"
+            class="btn btn-default btn-xs">
+            <i class="fa fa-file-o"></i> Lyrics contribution
+          </button>
+          <div id="add_lyrics" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Lyrics contribution</h4>
+                </div>
+                <div class="modal-body">
+                    <%= form_for [@song, @song.lyrics.build], role: "form" do |f| %>
+                      <div class="form-group">
+                        <%= f.text_area :content, class: "form-control",rows: "3", required: true %>
+                      </div>
+                      <%= f.submit class: "btn btn-success" %>
+                    <% end %>
+                </div>
+              </div>
             </div>
           </div>
+          <span class="pull-right text-muted">
+            127 <%= t ".likes"%> - <%= @comments.count %> <%= t ".comments"%>
+          </span>
         </div>
-        <div class="box-footer">
-          <form action="#" method="post">
-          <%= image_tag "user8", class:"img-responsive img-circle img-sm" %>
+        <h3>Comments:</h3>
+        <div class="box-footer add-comment">
+          <%= form_for [@song, @song.comments.build], role: "form" do |f| %>
+            <%= image_tag "user8",
+              class: "img-responsive img-circle img-sm img-add" %>
             <div class="img-push">
-              <input type="text" class="form-control input-sm"
-                placeholder="<%= t(".placeholder_comments") %>">
+              <%= f.text_field :content, class: "form-control input-sm input-add",
+              placeholder: "Press enter to song comment", required: true %>
             </div>
-          </form>
+          <% end %>
         </div>
+        <hr>
+        <%= render "comments/comments" %>
       </div>
     </div>
     <%= react_component t(".ranking") %>
     <%= t ".tags" %> <span class="badge bg-purple"><%= t(".tag1") %></span>
     <span class="badge bg-purple"><%= t(".tag2") %></span></span>
     <span class="badge bg-purple"><%= t(".tag3") %></span>
+  </div>
+</div>
+<div id="add_lyrics" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Lyrics contribution</h4>
+      </div>
+      <div class="modal-body">
+          <%= form_for [@song, @lyric], role: "form" do |f| %>
+            <div class="form-group">
+              <%= f.text_area :content, class: "form-control",
+                rows: "3", required: true %>
+            </div>
+            <%= f.submit class: "btn btn-success" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="sent_report" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Sent song report: <b><%= @song.name %></b></h4>
+      </div>
+      <div class="modal-body">
+        <p>Why are you reporting this song?</p>
+          <%= form_for [@song, @report], role: "form" do |f| %>
+            <div class="form-group">
+              <%= f.text_area :reason, class: "form-control",
+                rows: "3", required: true %>
+            </div>
+            <%= f.submit class: "btn btn-success" %>
+          <% end %>
+      </div>
+    </div>
   </div>
 </div>

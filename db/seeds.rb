@@ -1,29 +1,9 @@
-# 10.times do |n|
-#   name = FFaker::Name.name
-#   email = FFaker::Internet.email
-#   User.create! name: name,
-#   email: email
-# end
-
-# 10.times do |n|
-#   name = FFaker::Music.genre
-#   info = FFaker::Lorem.paragraph
-#   user_id = rand 1..10
-#   Category.create! name: name,
-#     info: info,
-#     user_id: user_id
-# end
-#create user
-# 20.times do |n|
-#   email = FFaker::InternetSE.free_email
-#   name  = FFaker::InternetSE.user_name
-#   phone = "0163711" << "#{n}"
-#   address = FFaker::Address.street_address
-#   password = "123456"
-#   activated = true
-#   activated_at = Time.zone.now
-#   User.create!(email: email, name: name, phone: phone, password: password, activated: activated)
-# end
+User.create! name: "Pham Duc",
+  email: "admin@gmail.com",
+  password: "111111",
+  activated: true,
+  activated_at: Time.zone.now,
+  role: 1
 
 10.times do |n|
   name = FFaker::Name.name
@@ -86,3 +66,10 @@ end
 #   album_id = n + 5
 #   AlbumSong.create!(song_id: song_id, album_id: album_id)
 # end
+
+10.times do |n|
+  name = FFaker::Music.album
+  user_id = rand 1..10
+  Album.create! name: name,
+    user_id: user_id
+end

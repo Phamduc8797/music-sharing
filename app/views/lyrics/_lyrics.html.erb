@@ -1,0 +1,8 @@
+<% if @song.lyrics.accepted.blank? %>
+  <p>No lyrics</p>
+<% else %>
+  <% @lyrics.each do |lyric|%>
+    <%= simple_format truncate(lyric.content, length: 100, omission: '... (continued)') %>
+  <% end %>
+<% end %>
+

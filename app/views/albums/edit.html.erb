@@ -1,0 +1,27 @@
+<% provide :title, t(".my_album") %>
+<div class="container">
+  <div class="col-md-3">
+    <%= render "users/user_board"%>
+  </div>
+  <div class="col-md-9">
+    <div class="row">
+      <h2><i class="fa fa-edit"></i> <%= t ".header_edit_album" %>
+      </h2>
+      <hr />
+      <%= form_for @album do |f| %>
+        <div class="form-group">
+          <i class="fa fa-user"></i> <%= t ".edit_name" %>
+          <%= f.text_field :name, class: "form-control",
+            placeholder: t(".placeholder_name"), required: true %>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-4">
+            <%= f.submit t(".upload"), class: "btn_upload" %>
+          </div>
+        </div>
+      <% end %>
+      <br>
+    </div>
+    <br>
+  </div>
+</div>

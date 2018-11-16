@@ -1,0 +1,28 @@
+<% @albums.each do |album| %>
+  <% if check_current_obj_user? album %>
+    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 team">
+      <div class="img-box">
+        <%= image_tag "/assets/user8.jpg", class: "img-responsive" %>
+        <ul class="text-center">
+          <a href="#">
+            <li><i class="fa fa-eye"></i></li>
+          </a>
+          <%= link_to edit_album_path(album) do %>
+            <li><i class="fa fa-pencil"></i></li>
+          <% end %>
+          <%= link_to album_path(album), method: :delete,
+            data: {confirm: t(".sure_delete")} do %>
+            <li><i class="fa fa-trash"></i></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="name-album-index">
+        <%= link_to "#", title: album.name do %>
+          <%= truncate(album.name, length: Settings.truncate.name_album) %>
+        <% end %>
+      </div>
+      <h2><%= album.songs.size %> <i class="fa fa-music"></i></h2>
+      <hr />
+    </div>
+  <% end %>
+<% end %>

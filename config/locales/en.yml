@@ -59,6 +59,47 @@ en:
         create_fail: "Create category fail! Please check imformation."
       load_category:
         not_found: "Not found category with id is %{id}."
+    lyrics:
+      index:
+        title: "Manage Lyrics"
+        filter: "Filter"
+        content: "Content"
+        commenter: "Commenter"
+        song: "Song"
+        created: "created_at"
+        status: "Status"
+        action: "Action"
+      lyrics:
+        show: "See details"
+        delete: "Delete"
+        sure: "You definitely want to delete this lyric!!"
+        unaccept: "Unaccept"
+        accept: "Accept"
+      accept:
+        accept_successfully: "Accept successfully"
+        accept_failed: "Accept failed"
+      unaccept:
+        unaccept_successfully: "Unaccept successfully"
+        unaccept_failed: "Unaccept successfully"
+      destroy:
+        delete_successfully: "Delete successfully"
+        delete_failed: "Delete failed"
+    reports:
+      index:
+        title: "Check reports"
+        reason: "Reason"
+        sender: "Sender"
+        song: "Song"
+        created: "created_at"
+        action: "Action"
+      reports:
+        show: "See Details"
+        delete: "Delete"
+        sure: "You definitely want to delete this lyric!!"
+      destroy:
+        delete_successfully: "Delete successfully!!"
+        delete_failed: "Delete failed"
+  lyric: "Lyric:"
   shared:
     header:
       B: "B"
@@ -89,6 +130,17 @@ en:
       copyright: "© 2018 Copyright"
       get_social_network: "Get connected with us on social networks!"
   users:
+    my_album:
+      title_my_album: "My albums"
+      header_my_album: "List my albums"
+      add_album: "Add album"
+      name_album: "Name album:"
+      placeholder_name_album: "Enter name album..."
+      add: "ADD"
+      notice: "Notice:"
+      notice_content: "You have not any album yet."
+    list_my_album:
+      sure_delete: "You definitely want to delete this album!!"
     list_my_song:
       delete: "Delete"
       you_sure: "You definitely want to delete this song!!"
@@ -183,62 +235,82 @@ en:
         account."
       link: "Active your account"
   songs:
-      new:
-        title_upload: "Upload song"
-        headerupload: "Upload new song"
-        namesong: "Name song, video:"
-        placeholder_song: "Enter name song..."
-        namesinger: "Singers, performers:"
-        nameauthor: "Author:"
-        imagename: "Avatar:"
-        filesong: "File song:"
-        category_select: "Category:"
-        upload: "Upload"
-        add: "Add"
-      show:
-        format: "Lorem Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industry's standard
-          dummy text ever since the 1500s.When an unknown printer took a galley
-          of type and scrambled it to make a type specimen book.It has survived
-          not only five centuries, but also the leap into electronic.
-          Typesetting, remaining essentially unchanged. It was popularised
-          in the 1960s with the release of"
-        placeholder_comments: "Press enter to post comment"
-        comments: "1 Comments"
-        likes: "150 Likes"
-        dislike: "Dislike"
-        like: "Like"
-        lyric: "Lyric"
-        report: "Report"
-        ranking: "Ranking"
-        tags: "Tags name"
-        tag1: "Dunderpatrullen-Singularity"
-        tag2: "Dunderpatrullen"
-        tag3: "Singularity"
-      edit:
-        title_edit_song: "Edit my song"
-        headeredit: "Edit uploaded songs"
-        namesong: "Name song, video:"
-        placeholder_song: "Enter new name song..."
-        namesinger: "Singers, performers:"
-        nameauthor: "Author:"
-        imagename: "Avatar:"
-        filesong: "File song:"
-        category_select: "Category:"
-        upload: "Save change!!"
-        add: "Add"
-      singer_fields:
-        placeholder_singer: "Enter name singers, performers..."
-        remove: "Remove"
-      author_fields:
-        placeholder_author: "Enter name author..."
-        remove: "Remove"
-      create:
-        add_song_successfully: "Upload song successfully!!"
-        add_song_fail: "Upload song failed!!"
-      update:
-        song_updated: "Update song successfully!!"
-        song_update_failed: "Update song failed!!"
-      destroy:
-        delete_successfully: "Delete song successfully!!"
-        add_song_fail: "Delete song failed!!"
+    show:
+      placeholder_comments: "Press enter to post comment"
+      comments: "1 Comments"
+      likes: "150 Likes"
+      dislike: "Dislike"
+      like: "Like"
+      lyric: "Lyric"
+      report: "Report"
+      ranking: "Ranking"
+      tags: "Tags name"
+      tag1: "Dunderpatrullen-Singularity"
+      tag2: "Dunderpatrullen"
+      tag3: "Singularity"
+      no_found_song: "The song does not exist!!"
+    new:
+      title_upload: "Upload song"
+      headerupload: "Upload new song"
+      namesong: "Name song, video:"
+      placeholder_song: "Enter name song..."
+      namesinger: "Singers, performers:"
+      nameauthor: "Author:"
+      imagename: "Avatar:"
+      filesong: "File song:"
+      category_select: "Category:"
+      upload: "Upload"
+      add: "Add"
+    edit:
+      title_edit_song: "Edit my song"
+      headeredit: "Edit uploaded songs"
+      namesong: "Name song, video:"
+      placeholder_song: "Enter new name song..."
+      namesinger: "Singers, performers:"
+      nameauthor: "Author:"
+      imagename: "Avatar:"
+      filesong: "File song:"
+      category_select: "Category:"
+      upload: "Save change!!"
+      add: "Add"
+    singer_fields:
+      placeholder_singer: "Enter name singers, performers..."
+      remove: "Remove"
+    author_fields:
+      placeholder_author: "Enter name author..."
+      remove: "Remove"
+    create:
+      add_song_successfully: "Upload song successfully!!"
+      add_song_fail: "Upload song failed!!"
+    update:
+      song_updated: "Update song successfully!!"
+      song_update_failed: "Update song failed!!"
+    destroy:
+      delete_successfully: "Delete song successfully!!"
+      add_song_fail: "Delete song failed!!"
+  albums:
+    create:
+      add_album_successfully: "Add album successfully!!!"
+      add_album_fail: "Add album failed!!!"
+    destroy:
+      delete_album_successfully: "Delete album successfully!!"
+      delete_album_fail: "Delete album failed!!"
+      must_current_user: "You are not the creator of this album, delete failed!!"
+    edit:
+      header_edit_album: "Edit album"
+      edit_name: "Edit name:"
+      placeholder_name: "Enter name you want..."
+      upload: "Upload now!"
+    update:
+      update_album_successfully: "Update album successfully!!"
+      update_album_fail: "Update album failed!!!"
+  comments:
+    destroy:
+      delete_successfully: "Delete comment successfully!!"
+      delete_fail: "Delete comment failed!!"
+      must_current_user: "You are not the creator of this comment, delete failed!!"
+    update:
+      updated: "Update comment successfully!!"
+      update_failed: "Update comment failed!!!"
+  report_successfully: "Report successfully!!. Wait admin check it."
+  report_failed: "Report failed"

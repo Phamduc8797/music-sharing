@@ -3,7 +3,7 @@
     <li class="avatar">
       <%= image_tag "user8", size: Settings.image_size.small %>
     </li>
-    <li class="name"><%= @user.name %></li>
+    <li class="name"><%= current_user.name %></li>
   </ul>
   <div class="sidebar-nav">
     <ul class="nav" id="side-menu">
@@ -14,13 +14,16 @@
         <%= link_to t(".setting"), edit_user_path(current_user) %>
       </li>
       <li>
-        <%= link_to users_my_song_path, class: "dropdown-toggle" do %>
+        <%= link_to my_songs_path, class: "dropdown-toggle" do %>
           <%= t ".my_song" %> <i class="fa fa-music"></i>
         <% end %>
       </li>
       <li>
-        <a href=""><%= t ".my_playlist" %></a>
+        <%= link_to my_albums_path do %>
+          <%= t ".my_playlist" %> <i class="fa fa-book"></i>
+        <% end %>
       </li>
     </ul>
   </div>
 </div>
+

@@ -16,4 +16,8 @@ module ApplicationHelper
     end
     link_to(name, "#", class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def check_current_obj_user? obj
+    obj.user == current_user
+  end
 end
