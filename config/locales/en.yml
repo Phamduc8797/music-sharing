@@ -59,6 +59,32 @@ en:
         create_fail: "Create category fail! Please check imformation."
       load_category:
         not_found: "Not found category with id is %{id}."
+    lyrics:
+      index:
+        title: "Manage Lyrics"
+        filter: "Filter"
+        content: "Content"
+        commenter: "Commenter"
+        song: "Song"
+        created: "created_at"
+        status: "Status"
+        action: "Action"
+      lyrics:
+        show: "See details"
+        delete: "Delete"
+        sure: "You definitely want to delete this lyric!!"
+        unaccept: "Unaccept"
+        accept: "Accept"
+      accept:
+        accept_successfully: "Accept successfully"
+        accept_failed: "Accept failed"
+      unaccept:
+        unaccept_successfully: "Unaccept successfully"
+        unaccept_failed: "Unaccept successfully"
+      destroy:
+        delete_successfully: "Delete successfully"
+        delete_failed: "Delete failed"
+  lyric: "Lyric:"
   shared:
     header:
       B: "B"

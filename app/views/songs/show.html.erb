@@ -11,7 +11,6 @@
             <% end %>
           </h4>
           <canvas class="body body-<%= @song.id%> mb-1"></canvas>
-          <%= audio_tag @song.song_url.url, controls: true %>
           <p><strong><%= t ".lyric" %></strong>
             <%= render "lyrics/lyrics" %>
           </p>
@@ -29,6 +28,27 @@
             class="btn btn-default btn-xs">
             <i class="fa fa-file-o"></i> Lyrics contribution
           </button>
+          <button type="button" data-toggle="modal" data-target="#add_lyrics" class="btn btn-default btn-xs">
+            <i class="fa fa-file-o"></i> Lyrics contribution
+          </button>
+          <div id="add_lyrics" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Lyrics contribution</h4>
+                </div>
+                <div class="modal-body">
+                    <%= form_for [@song, @song.lyrics.build], role: "form" do |f| %>
+                      <div class="form-group">
+                        <%= f.text_area :content, class: "form-control",rows: "3", required: true %>
+                      </div>
+                      <%= f.submit class: "btn btn-success" %>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
           <span class="pull-right text-muted">
             127 <%= t ".likes"%> - <%= @comments.count %> <%= t ".comments"%>
           </span>
