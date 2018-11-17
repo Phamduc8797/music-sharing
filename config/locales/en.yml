@@ -95,7 +95,22 @@ en:
       reports:
         show: "See Details"
         delete: "Delete"
-        sure: "You definitely want to delete this lyric!!"
+        sure: "You definitely want to delete this report!!"
+      destroy:
+        delete_successfully: "Delete successfully!!"
+        delete_failed: "Delete failed"
+    comments:
+      index:
+        title: "Check Comments"
+        content: "Comments"
+        commenter: "commenter"
+        song: "Songs"
+        created: "created_at"
+        action: "Action"
+      comments:
+        show: "See Details"
+        delete: "Delete"
+        sure: "You definitely want to delete this comment!!"
       destroy:
         delete_successfully: "Delete successfully!!"
         delete_failed: "Delete failed"
@@ -237,11 +252,9 @@ en:
   songs:
     show:
       placeholder_comments: "Press enter to post comment"
-      comments: "1 Comments"
-      likes: "150 Likes"
       dislike: "Dislike"
       like: "Like"
-      lyric: "Lyric"
+      lyric: "Lyric:"
       report: "Report"
       ranking: "Ranking"
       tags: "Tags name"

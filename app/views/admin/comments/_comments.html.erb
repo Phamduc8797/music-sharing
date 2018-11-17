@@ -1,0 +1,19 @@
+<% @comments.each do |comment| %>
+  <tr>
+    <td><%= truncate(comment.content, :length => 50) %></td>
+    <td><%= comment.user.name %></td>
+    <td><%= comment.song.name %></td>
+    <td><%= comment.created_at %></td>
+    <td>
+      <%= link_to admin_comment_path(comment), data: {toggle: "modal", target: "#see_details"},
+        remote: true do %>
+        <i class="fa fa-eye" title="<%= t '.show' %>"></i>
+      <% end %>
+      <%= link_to admin_comment_path(comment), method: :delete,
+        data: {confirm: t(".sure")} do %>
+        <i class="fa fa-trash" title="<%= t '.delete' %>"></i>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+<div id="see_details" class="modal fade" role="dialog"></div>

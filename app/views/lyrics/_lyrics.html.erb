@@ -2,7 +2,38 @@
   <p>No lyrics</p>
 <% else %>
   <% @lyrics.each do |lyric|%>
-    <%= simple_format truncate(lyric.content, length: 100, omission: '... (continued)') %>
+  <div id="myDIVd">
+    <%= simple_format lyric.content %>
+  </div>
+  <a href="#head_lyric" onclick="myButton()">
+      <div id="myButton">v See more...</div>
+    </a>
   <% end %>
 <% end %>
 
+<style>
+  #myDIVd {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+  .opensd {
+    width: 300px;
+      height: auto !important;
+  }
+</style>
+
+<script>
+
+function myButton() {
+  var x = document.getElementById("myDIVd");
+  if (x.className === "opensd") {
+    document.getElementById("myButton").innerHTML = "v See more...";
+    x.className = "closesd";
+  } else {
+    x.className = "opensd";
+    document.getElementById("myButton").innerHTML = "^ Compact";
+  }
+}
+</script>

@@ -23,5 +23,6 @@ Rails.application.routes.draw do
     resources :categories
     resources :lyrics
     resources :reports
+    resources :comments
   end
 end
