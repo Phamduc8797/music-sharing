@@ -9,6 +9,7 @@ class SongsController < ApplicationController
   end
 
   def show
+    @song.increase_view
     @lyric =  @song.lyrics.build
     @report = @song.reports.build
     @lyrics = @song.lyrics.accepted.page(params[:page]).per 1

@@ -24,35 +24,7 @@ end
     info: info,
     user_id: user_id
 end
-#   User.create!(email: email, name: name, phone: phone, password: password)
-# end
 
-# #create category
-# 20.times do |n|
-#   user_id = n + 1
-#   name = FFaker::Music.genre
-#   info = FFaker::Music.artist
-#   Category.create!(user_id: user_id, name: name, info: info)
-# end
-
-# #create songs
-# name_songs = [ "dunderpatrullen-singularity",
-#           "nobuo-uematsu-the-promise",
-#           "lol-bit-rush",
-#           "lol-worlds-collide",
-#           "hatsune-miku-secret-police",
-#           "hatsune-miku-senbonzakura",
-#           "hatsune-miku-talent-shredder",
-#           "one-punch-man-opening-1",
-#         ]
-# name_songs.each do |name_song|
-#   name = name_song
-#   song_url = "https://cdn.zekken.rocks/mp3/#{name_song}.mp3"
-#   user_id = 1
-#   category_id = 1
-#   view = 1856
-#   Song.create(name: name, song_url: song_url, user_id: user_id, category_id: category_id, view: view)
-# end
 
 # #create album
 # 20.times do

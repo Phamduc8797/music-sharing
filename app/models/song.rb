@@ -21,4 +21,9 @@ class Song < ApplicationRecord
   scope :get_song, (lambda do
     all.order("created_at asc").limit(Settings.get_song.limit)
   end)
+
+  def increase_view
+    self.view += 1
+    self.save!
+  end
 end
