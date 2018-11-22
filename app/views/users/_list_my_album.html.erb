@@ -2,11 +2,11 @@
   <% if check_current_obj_user? album %>
     <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 team">
       <div class="img-box">
-        <%= image_tag "/assets/user8.jpg", class: "img-responsive" %>
+        <%= image_tag get_avatar(album), class: "img-responsive img-album-100" %>
         <ul class="text-center">
-          <a href="#">
+          <%= link_to album_path(album) do %>
             <li><i class="fa fa-eye"></i></li>
-          </a>
+          <% end %>
           <%= link_to edit_album_path(album) do %>
             <li><i class="fa fa-pencil"></i></li>
           <% end %>
@@ -17,7 +17,7 @@
         </ul>
       </div>
       <div class="name-album-index">
-        <%= link_to "#", title: album.name do %>
+        <%= link_to album_path(album), title: album.name do %>
           <%= truncate(album.name, length: Settings.truncate.name_album) %>
         <% end %>
       </div>

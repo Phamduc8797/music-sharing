@@ -86,7 +86,7 @@ input[type=text] {
 
 .space-botton {margin-bottom: 2px;}
 .link-to-song {font-size: 26px; margin-left: 5px;}
-.img_my_song {max-width: 110%; height: auto;}
+.img_my_song {width: 100%; height: 100px;}
 .clearfix {clear:both;}
 .rowcolor {background-color: $bg-rowcolor;}
 .padall {padding: 5px;}
@@ -162,3 +162,32 @@ hr {border: 1px solid $list-album-hr;}
   text-overflow: ellipsis;
 }
 .lyric_open {width: 100%; height: auto !important;}
+
+/*comments*/
+
+.action-comment {display: none;}
+.action-comment2:hover {
+  .action-comment {display: block;}
+  .action-comment3 {background-color: #D8D8D8;}
+}
+.add-comment {background-color: #D8D8D8; height: 70px; border-radius: 10px;}
+.new_comment {margin-top: 5px;}
+.box-widget hr {border: 0.3px solid #858585}
+.input-add {height: 40px; font-size: 18px;}
+.img-add {width: 40px !important; height: 40px !important;}
+.img-push input[type=text] {width: 99%;}
+.img-sm + .img-push {margin-left: 55px;}
+.bg-color {background-color: gray}
+.input-edit input[type=text] {
+  border: 1px solid #FACC2E;
+  height: 40px;
+  font-size: 14px;
+}
+.edit-comment-fm img {
+  width: 40px !important;
+    height: 40px !important;
+    margin-left: 10px;
+}
+.trun-comment p {width: 90%; height: auto !important; padding: 0; margin: 0;}
+.img-album-100 {height: 100px;}
+#myListSong li {list-style-type: none;}

@@ -1,0 +1,11 @@
+<% @show_songs.each do |song| %>
+  <div class="col-md-6" >
+    <ul id="myListSong">
+      <li>
+        <input type="checkbox" name="songs[]" value="<%= song.id %>"
+        <%= " checked" if song.id == params[:id].to_i %> >
+        <%= song.name %>
+      </li>
+    </ul>
+  </div>
+<% end %>

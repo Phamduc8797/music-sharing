@@ -8,8 +8,10 @@ validates:
   phone:
     maximum: 15
 remember_me_checked: 1
+default_avatar: "user8"
 image_size:
   small: "160x120"
+  smallest: "80x80"
 expired_time: 2
 get_song:
   limit: 10
@@ -19,6 +21,7 @@ page:
   my_song: 10
   show_lyric: 1
 truncate:
-  name_album: 12
+  name_album: 11
 users:
   show: 10
+default_avatar: "/assets/img_lights.jpg"

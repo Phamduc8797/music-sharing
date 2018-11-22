@@ -9,15 +9,15 @@
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-comments fa-5x"></i>
+            <i class="fa fa-file fa-5x"></i>
           </div>
           <div class="col-xs-9 text-right">
-            <div class="huge"><%= t ".number" %></div>
-            <div><%= t ".link" %></div>
+            <div class="huge"><%= @lyrics.size %></div>
+            <div><%= t ".lyrics" %></div>
           </div>
         </div>
       </div>
-      <a href="#">
+      <%= link_to admin_lyrics_path do %>
         <div class="panel-footer">
           <span class="pull-left"><%= t ".view" %></span>
           <span class="pull-right">
@@ -25,7 +25,7 @@
           </span>
           <div class="clearfix"></div>
         </div>
-      </a>
+      <% end %>
     </div>
   </div>
   <div class="col-lg-3 col-md-6">
@@ -33,15 +33,15 @@
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-comments fa-5x"></i>
+            <i class="fa fa-flag fa-5x"></i>
           </div>
           <div class="col-xs-9 text-right">
-            <div class="huge"><%= t ".number" %></div>
-            <div><%= t ".link" %></div>
+            <div class="huge"><%= @reports.size %></div>
+            <div><%= t ".reports" %></div>
           </div>
         </div>
       </div>
-      <a href="#">
+      <%= link_to admin_reports_path do %>
         <div class="panel-footer">
           <span class="pull-left"><%= t ".view" %></span>
           <span class="pull-right">
@@ -49,7 +49,7 @@
           </span>
           <div class="clearfix"></div>
         </div>
-      </a>
+      <% end %>
     </div>
   </div>
   <div class="col-lg-3 col-md-6">
@@ -60,12 +60,12 @@
             <i class="fa fa-comments fa-5x"></i>
           </div>
           <div class="col-xs-9 text-right">
-            <div class="huge"><%= t ".number" %></div>
+            <div class="huge"><%= t @comments.size %></div>
             <div><%= t ".link" %></div>
           </div>
         </div>
       </div>
-      <a href="#">
+      <%= link_to admin_comments_path do %>
         <div class="panel-footer">
           <span class="pull-left"><%= t ".view" %></span>
           <span class="pull-right">
@@ -73,7 +73,7 @@
           </span>
           <div class="clearfix"></div>
         </div>
-      </a>
+      <% end %>
     </div>
   </div>
   <div class="col-lg-3 col-md-6">
@@ -81,15 +81,15 @@
       <div class="panel-heading">
         <div class="row">
           <div class="col-xs-3">
-            <i class="fa fa-comments fa-5x"></i>
+            <i class="fa fa-music fa-5x"></i>
           </div>
           <div class="col-xs-9 text-right">
-            <div class="huge"><%= t ".number" %></div>
-            <div><%= t ".link" %></div>
+            <div class="huge"><%= t @songs.size %></div>
+            <div><%= t ".songs" %></div>
           </div>
         </div>
       </div>
-      <a href="#">
+      <%= link_to admin_songs_path do %>
         <div class="panel-footer">
           <span class="pull-left"><%= t ".view" %></span>
           <span class="pull-right">
@@ -97,7 +97,7 @@
           </span>
           <div class="clearfix"></div>
         </div>
-      </a>
+      <% end %>
     </div>
   </div>
 </div>

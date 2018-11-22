@@ -20,4 +20,8 @@ module ApplicationHelper
   def check_current_obj_user? obj
     obj.user == current_user
   end
+
+  def get_avatar user
+    user.image.present? ? user.image.image_url.url : Settings.default_avatar
+  end
 end

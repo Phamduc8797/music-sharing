@@ -1,0 +1,24 @@
+<% @songs.each do |song| %>
+  <tr>
+    <td><%= image_tag get_avatar(song), size: 50 %></td>
+    <td>
+      <%= link_to song_path(song) do %>
+        <span title="<%=song.name%>"><%= truncate(song.name, length: 20) %></span>
+      <% end %>
+    </td>
+    <td><%= song.user.name %></td>
+    <td><%= song.view %></td>
+    <td><%= link_to song.comments.size, admin_comments_path, title: "Go to Manage comments" %></td>
+    <td><%= link_to song.lyrics.size, admin_lyrics_path, title: "Go to Manage lyrics" %></td>
+    <td><%= link_to song.reports.size, admin_reports_path, title: "Go to Manage reports" %></td>
+    <td><%= song.category.name %></td>
+    <td><%= song.created_at %></td>
+    <td>
+      <%= link_to admin_song_path(song), method: :delete,
+        data: {confirm: t(".sure")} do %>
+        <i class="fa fa-trash icon-unacepted" title="<%= t '.delete' %>"></i>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+<div id="see_details" class="modal fade" role="dialog"></div>

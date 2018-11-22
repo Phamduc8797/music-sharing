@@ -1,0 +1,11 @@
+ <tr>
+  <td>
+    <%= image_tag get_avatar(author), size: Settings.image_size.smallest %>
+  </td>
+  <td><%= author.name %></td>
+  <td><%= author.songs.count %></td>
+  <td><%= link_to t("admin.edit"), edit_admin_author_path(author) %></td>
+  <td><%= link_to t("admin.delete"), admin_author_path(author),
+    method: :delete, data: {confirm: t(".confirm")} %>
+  </td>
+</tr>

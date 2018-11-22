@@ -1,16 +1,29 @@
 class AlbumsController < ApplicationController
   before_action :logged_in_user
-  before_action :load_album, only: %i(edit update destroy)
+  before_action :load_album, only: %i(show edit update destroy)
+
+  def show
+
+  end
 
   def create
     @album = Album.new album_params
-    @album.user = current_user
-    if @album.save
-      flash[:success] = t ".add_album_successfully"
+    if params[:songs].present?
+      @album.transaction do
+        @album.user = current_user
+        @album.songs << Song.find(params[:songs])
+        if @album.save
+          flash[:success] = t ".create_success"
+          redirect_to my_albums_url
+        else
+          flash.now[:warning] = t ".create_fail"
+          render :new
+        end
+      end
     else
-      flash[:danger] = t ".add_album_fail"
+      flash.now[:warning] = t ".select_room_require"
+      render :new
     end
-    redirect_to my_albums_url
   end
 
   def edit; end
@@ -48,6 +61,7 @@ class AlbumsController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit :name, :user_id
+    params.require(:album).permit :name, :user_id,
+      image_attributes: [:id, :image_url, :imageable_id, :imageable_type, :_destroy]
   end
 end

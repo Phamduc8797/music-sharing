@@ -40,8 +40,7 @@ end
 #   user_id = 1
 #   category_id = 1
 #   view = 1856
-#   Song.create(name: name, song_url: song_url, user_id: user_id, category_id: category_id, view: view)
-# end
+#   Song.create(name: name, song_url: song_url, us
 
 # #create album
 # 20.times do

@@ -1,0 +1,67 @@
+<% provide :title, t(".show_album") %>
+<div class="container">
+  <div class="col-md-3">
+    <%= render "users/user_board"%>
+  </div>
+  <div class="col-md-6">
+    <div class="container">
+      <h3><i class="fa fa-info-circle"></i> <%= t ".album" %> <%= @album.name %></h3>
+      <div class="row">
+        <hr />
+        <% if @album.songs.blank? %>
+          <div class="notice-mysong notice-mysong-warning">
+            <strong><%= t(".notice:") %></strong> <%= t(".no_song") %>
+          </div>
+        <% else %>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
+          <% @album.songs.each do |song| %>
+            <div class="panel panel-primary space-botton">
+              <div class="row padall">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                  <%= image_tag get_avatar(song), class: "img_my_song" %>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                  <div class="clearfix">
+                    <div class="pull-left">
+                      <br>
+                      <%= link_to "#" do %>
+                        <span class="fa fa-music icon">
+                          <%= link_to song.name, song_path(song), class: "link-to-song" %>
+                        </span>
+                      <% end %>
+                    </div>
+                    <div class="pull-right">
+                      <%= song.created_at.to_time.strftime("%B %e at %l:%M %p") %>
+                    </div>
+                  </div>
+                  <div>
+                    <% song.singers.each do |singer| %>
+                      <%= singer.name %>,
+                    <% end %>
+                    <%= link_to song_path(song), method: :delete,
+                      data: {confirm: t(".you_sure")} do %>
+                      <span class="fa fa-trash icon_delete pull-right">
+                        <%= t ".delete" %>
+                      </span>
+                    <% end %>
+                    <%= link_to edit_song_path(song) do %>
+                      <span class="fa fa-edit icon_edit pull-right">
+                        <%= t ".edit" %>
+                      </span>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <br>
+        </div>
+        <% end %>
+
+
+
+      </div>
+    </div>
+    <br>
+  </div>
+</div>

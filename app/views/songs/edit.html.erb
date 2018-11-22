@@ -31,8 +31,13 @@
         <div class="col-50">
           <i class="fa far fa-image  "></i> <%= t ".imagename" %>
           <div class="add_author">
-            <img src="/assets/img_lights.jpg">
-            <input type="file"><br>
+            <%= image_tag get_avatar(@song), class: "img_my_song" %>
+            <%= f.fields_for :image_attributes do |image_f| %>
+              <%= image_f.file_field :image_url %>
+              <%= image_f.hidden_field :imageable_id, value: @song.id %>
+              <%= image_f.hidden_field :imageable_type, value: "image" %>
+            <% end %>
+            <br>
           </div>
           <i class="fa far fa-image  "></i> <%= t ".filesong" %>
           <span class="present_icon">*</span>

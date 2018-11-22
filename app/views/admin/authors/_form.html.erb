@@ -1,0 +1,29 @@
+<%= form_for [:admin, @author] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control", placeholder: t(".name") %>
+  </div>
+  <div class="form-group">
+    <%= f.label :info %>
+    <%= f.text_area :info, class: "form-control", placeholder: t(".info") %>
+  </div>
+  <div class="row form-group">
+    <div class="col-xs-12 col-md-4">
+      <%= image_tag get_avatar(@author), size: Settings.image_size.small %>
+    </div>
+    <div class="col-xs-10 col-md-6">
+      <%= f.fields_for :image_attributes do |image_f| %>
+        <%= image_f.label :image %><br>
+        <%= image_f.file_field :image_url %>
+        <%= image_f.hidden_field :imageable_id, value: @author.id %>
+        <%= image_f.hidden_field :imageable_type, value: "image" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <%= f.submit yield(:button_text), class: "btn btn-primary btn-block" %>
+    </div>
+  </div>
+<% end %>

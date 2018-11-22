@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2018_11_02_071030) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "context"
+    t.text "content"
     t.bigint "user_id"
     t.bigint "song_id"
     t.datetime "created_at", null: false
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2018_11_02_071030) do
   end
 
   create_table "reports", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "reason"
+    t.text "reason"
     t.bigint "user_id"
     t.bigint "song_id"
     t.datetime "created_at", null: false
@@ -125,7 +125,7 @@ ActiveRecord::Schema.define(version: 2018_11_02_071030) do
   create_table "songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "song_url"
-    t.integer "view"
+    t.integer "view", default: 0
     t.bigint "user_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false

@@ -1,9 +1,9 @@
 <nav class="navbar navbar-inverse navbar-static-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a href="#" class="navbar-brand">
+      <%= link_to root_url, class: "navbar-brand" do %>
         <b><%= t ".B" %></b><%= t ".music" %>
-      </a>
+      <% end %>
       <button type="button" class="navbar-toggle collapsed"
         data-toggle="collapse" data-target="#navbar-collapse">
         <i class="fa fa-bars"></i>
@@ -59,7 +59,37 @@
             <i class="fa fa-user fa-fw"></i> <%= t ".user" %>
           <% end %>
         </li>
+        <li>
+          <%= link_to admin_songs_path do %>
+            <i class="fa fa-music fa-fw"></i> <%= t ".songs" %>
+          <% end %>
+        <li>
+          <%= link_to admin_lyrics_path do %>
+            <i class="fa fa-file fa-fw"></i> <%= t ".lyrics" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_reports_path do %>
+            <i class="fa fa-flag fa-fw"></i> <%= t ".reports" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_comments_path do %>
+            <i class="fa fa-comments fa-fw"></i> <%= t ".comments" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_singers_path do %>
+            <i class="fa fa-bookmark fa-fw"></i> <%= t ".singer" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_authors_path do %>
+            <i class="fa fa-bookmark fa-fw"></i> <%= t ".author" %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+

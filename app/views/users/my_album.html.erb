@@ -5,12 +5,12 @@
   </div>
   <div class="col-md-9">
     <div class="row">
-      <h2><i class="fa fa-list"></i> <%= t ".header_my_album" %>
+      <h3><i class="fa fa-list"></i> <%= t ".header_my_album" %>
         <%= link_to "#", class: "newalbum",
           data: {toggle: "modal", target: "#new_album"} do %>
           <i class="fa fa-plus-square"></i> <%= t ".add_album" %>
         <% end %>
-      </h2>
+      </h3>
       <hr />
       <div class="row pt-md">
         <% if current_user.albums.blank? %>
@@ -38,8 +38,22 @@
               <i class="fa fa-user"></i> <%= t ".name_album" %>
               <%= f.text_field :name, class: "form-control",
                 placeholder: t(".placeholder_name_album"), required: true %>
+              <i class="fa fa-image"></i> <%= t ".image" %>
+              <%= f.fields_for :image_attributes do |image_f| %>
+                <%= image_f.file_field :image_url %>
+                <%= image_f.hidden_field :imageable_id, value: @album.id %>
+                <%= image_f.hidden_field :imageable_type, value: "image" %>
+              <% end %>
+              <i class="fa fa-music"></i> <%= t ".add_song" %><br>
+              <input id="myInputListSong" type="text" placeholder="Search..">
+              <div id="add_songs_album">
+                <%= render "show_songs" %>
+              </div>
           </div>
           <div class="modal-footer">
+            <div id="paginate_album">
+              <%= paginate @show_songs, theme: "twitter-bootstrap-3", remote: true %>
+            </div>
             <%= f.submit t(".add"), class: "btn btn-info" %>
           </div>
             <% end %>

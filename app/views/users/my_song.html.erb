@@ -5,7 +5,7 @@
   </div>
   <div class="col-md-6">
     <div class="container">
-      <h2><i class="fa fa-list"></i> <%= t ".headermysong" %></h2>
+      <h3><i class="fa fa-list"></i> <%= t ".headermysong" %></h3>
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
           <% if current_user.songs.blank? %>
@@ -14,11 +14,15 @@
             </div>
           <% else %>
             <%= render "list_my_song" %>
-            <%= paginate @songs %>
+            <%= paginate @songs, theme: "twitter-bootstrap-3" %>
           <% end %>
         </div>
       </div>
+
     </div>
-    <br>
+    <br><%= react_component t(".ranking") %>
+    <%= t ".tags" %> <span class="badge bg-purple"><%= t(".tag1") %></span>
+    <span class="badge bg-purple"><%= t(".tag2") %></span></span>
+    <span class="badge bg-purple"><%= t(".tag3") %></span>
   </div>
 </div>

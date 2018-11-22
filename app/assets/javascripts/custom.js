@@ -24,3 +24,13 @@ function coLyric() {
     document.getElementById("coLyric").innerHTML = "^ Compact";
   }
 }
+
+//choose song add to album
+$(document).ready(function(){
+  $("#myInputListSong").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myListSong li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});

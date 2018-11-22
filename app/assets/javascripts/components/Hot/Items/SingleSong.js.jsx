@@ -53,7 +53,7 @@ class SingleSong extends React.Component {
     return(
       <div className="col-xs-2 pb-1">
         <div className="view overlay" onClick={this.onclick}>
-          <img src="http://placehold.it/190x170" className="img-fluid " alt="smaple image" />
+          <img src={song.image.image_url.url} className="img-fluid height-100" alt="smaple image" />
           <div className="mask flex-center rgba-cyan-strong">
             <p className="white-text font-weight-bold play" >
               {play}

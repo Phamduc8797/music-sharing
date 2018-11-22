@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root "static_pages#index"
   get "my_songs", to: "users#my_song"
   get "my_albums", to: "users#my_album"
+  post "add_to_albums", to: "songs#update"
+  put 'unaccept/:id(.:format)', :to => 'admin/lyrics#unaccept', :as => :unaccept
+  put 'accept/:id(.:format)', :to => 'admin/lyrics#accept', :as => :accept
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
@@ -13,10 +16,18 @@ Rails.application.routes.draw do
   resources :albums
   resources :songs do
     resources :lyrics
+    resources :comments
+    resources :reports
   end
   namespace :admin do
     get "/", to: "dashboards#index"
     resources :categories
+    resources :singers
+    resources :authors
     resources :users, except: %i(new create)
+    resources :lyrics
+    resources :reports
+    resources :comments
+    resources :songs
   end
 end
