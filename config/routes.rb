@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :comments
     resources :reports
   end
+  resources :videos
   resources :likes
   namespace :admin do
     get "/", to: "dashboards#index"

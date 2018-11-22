@@ -217,6 +217,7 @@ ul{list-style: none;}
 .height-40 {height: 40rem!important;}
 .height-30 {height: 30rem!important;}
 .height-10 {height: 10rem!important;}
+.height-20 {height: 20rem!important;}
 .text-center{text-align: center;}
 .white-text {color: #fff;}
 .black-text {color: #000}
@@ -224,6 +225,7 @@ ul{list-style: none;}
 .gray-text {color: #fe5196}
 .fs-10{font-size: 10rem;}
 .fs-2{font-size: 1.75rem;}
+.fs-5{font-size: 5rem;}
 .text-primary {color: #4285f4!important;}
 .text-light-red {color: #ea0000!important;}
 .font-weight-bold{font-weight: bold;}
@@ -246,6 +248,10 @@ ul{list-style: none;}
 .img-fluid {
     max-width: 100%;
     height: auto;
+}
+.img-ranking {
+  margin-top: -5px;
+  height: 50px;
 }
 
 .height-100{width: 100%;height: 100px!important;}

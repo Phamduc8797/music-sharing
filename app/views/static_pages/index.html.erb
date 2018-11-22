@@ -7,5 +7,23 @@
 </section>
 
 <section class="invoice p-0">
-  <%= react_component "ListMusic"%>
+  <div className="container-fluid">
+        <div class="row">
+          <div class="col-xs-9">
+            <div class="row">
+              <div class="col-xs-6">
+                <div class="">
+                  <h3 className="font-weight-bold dark-grey-text mb-3">
+                    <a>List Video </a>
+                  </h3>
+                  <%= render partial: "video", collection: @videos, as: :video %>
+                </div>
+                <%= paginate @videos %>
+              </div>
+              <%= react_component "SuggestSong"%>
+            </div>
+          </div>
+          <%= react_component "Ranking"%>
+        </div>
+      </div>
 </section>

@@ -6,7 +6,7 @@ class SongsController < ApplicationController
 
   def index
     @songs = Song.get_song
-    render json:@songs.to_json(include: :image)
+    render json:@songs.to_json(include: [:image, :authors, :singers])
   end
 
   def show
@@ -24,7 +24,7 @@ class SongsController < ApplicationController
   def recommend_song
     recommend_songs = current_user.recommend_songs
     @list_song = Song.where(id: recommend_songs).order(id: :desc)
-    render json:@list_song.to_json(include: [:category, :authors])
+    render json:@list_song.to_json(include: [:category, :authors, :image])
   end
 
   def new
@@ -85,7 +85,7 @@ class SongsController < ApplicationController
 
   def chart_songs
     @songs = Song.order(view: :desc).limit(5)
-    render json:@songs
+    render json:@songs.to_json(include: [:image])
   end
 
   private

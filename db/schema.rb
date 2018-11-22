@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_071030) do
+ActiveRecord::Schema.define(version: 2018_11_22_074946) do
 
   create_table "album_songs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "album_id"
@@ -148,6 +148,17 @@ ActiveRecord::Schema.define(version: 2018_11_02_071030) do
     t.integer "role", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "videos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "link"
+    t.string "uid"
+    t.integer "likes"
+    t.integer "dislikes"
+    t.datetime "published_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["uid"], name: "index_videos_on_uid"
   end
 
   add_foreign_key "album_songs", "albums"

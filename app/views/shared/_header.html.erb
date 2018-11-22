@@ -14,7 +14,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="#"><%= t ".songs" %>
             <span class="sr-only">(current)</span></a></li>
-          <li><a href="#"><%= t ".playlists" %></a></li>
+          <li><%= link_to 'Add video now!', new_video_path %></li>
         </ul>
         <%= form_with url: search_path_url, method: :get, local: true,
         class:"navbar-form navbar-left input-group" do |form| %>

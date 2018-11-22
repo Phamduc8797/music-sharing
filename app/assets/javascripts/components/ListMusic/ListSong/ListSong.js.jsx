@@ -5,12 +5,13 @@ class ListSong extends React.Component {
     let list_author = song.authors.map(author => {
       return <a href="">{author.name}</a>
     })
+
     return(
       <div className="single-news mb-lg-0 mb-4">
         <div className="row">
           <div className="col-md-3">
             <div className="view overlay rounded z-depth-1 mb-lg-0 mb-4">
-              <img src="/assets/bh1.jpg" className="img-fluid" />
+              <img src={song.image.image_url.url} className="img-fluid height-10 width-10" />
               <a><div className="mask rgba-white-slight waves-effect waves-light"></div></a>
             </div>
           </div>

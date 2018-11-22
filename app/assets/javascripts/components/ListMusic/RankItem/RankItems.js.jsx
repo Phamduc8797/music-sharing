@@ -11,8 +11,9 @@ class RankItems extends React.Component{
     let {i} = this.state
     return(
       <div className="info-box hoverable">
-        <span className= {"info-box-icon blue-gradient-1"}>
-          <i className="fa fa-star"></i>
+
+        <span className= {"info-box-icon"}>
+          <img src={item.image.image_url.url} class="img-fluid img-ranking" />
         </span>
         <span className="info-box-text">
           &nbsp;<a href="#"> {item.name}</a>
